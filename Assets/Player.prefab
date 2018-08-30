@@ -1103,8 +1103,8 @@ GameObject:
   - component: {fileID: 95987735980027292}
   - component: {fileID: 54350307760183590}
   - component: {fileID: 136776411253549048}
-  - component: {fileID: 114490741915729122}
   - component: {fileID: 114251887857461040}
+  - component: {fileID: 114457081505710074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2503,9 +2503,9 @@ MonoBehaviour:
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1.2
+  m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
---- !u!114 &114490741915729122
+--- !u!114 &114457081505710074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2513,9 +2513,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915258514709236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Script: {fileID: 11500000, guid: c8ebf314a7aa00d41a9faabb84213410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkMoveStopRadius: 0.2
 --- !u!136 &136776411253549048
 CapsuleCollider:
   m_ObjectHideFlags: 1
