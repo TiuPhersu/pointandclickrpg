@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour{
     CameraRaycaster cameraRaycaster;
     Vector3 currentClickTarget;
 
-    bool isInDirectMode = false;// TODO consider making static later
+    bool isInDirectMode = false;
 
     private void Start()
     {
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour{
     {
         if (Input.GetKeyDown(KeyCode.G)){// G for gamepad. TODO allow player to map later
             isInDirectMode = !isInDirectMode;
+            currentClickTarget = transform.position;// clear the click target
         }
 
         if (isInDirectMode){
@@ -40,10 +41,10 @@ public class PlayerMovement : MonoBehaviour{
         float v = Input.GetAxis("Vertical");
 
         // calculate camera relative direction to move:
-        Vector3 m_CamForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-        Vector3 m_Move = v * m_CamForward + h * Camera.main.transform.right;
+        Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+        Vector3 move = v * camForward + h * Camera.main.transform.right;
 
-        m_Character.Move(m_Move, false, false);
+        m_Character.Move(move, false, false);
     }
 
     private void ProcessMouseMovement()
