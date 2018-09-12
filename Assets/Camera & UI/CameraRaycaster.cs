@@ -23,8 +23,8 @@ public class CameraRaycaster : MonoBehaviour
     }
 
     //how to use delegate
-    public delegate void OnLayerChange();// declare new delegate type
-    public OnLayerChange layerChangeObservers; // instantiate an observer pool
+    public delegate void OnLayerChange(Layer newLayer);// declare new delegate type
+    public event OnLayerChange onLayerChange; // instantiate an observer pool
 
 
     void Start()
@@ -43,7 +43,7 @@ public class CameraRaycaster : MonoBehaviour
                 raycastHit = hit.Value;
                 if (layerHit != layer){// if layer changed
                     layerHit = layer;
-                    layerChangeObservers();// call all the delegates
+                    onLayerChange(layer);// call all the delegates
                 }
                 layerHit = layer;
                 return;
